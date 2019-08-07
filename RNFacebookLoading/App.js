@@ -6,10 +6,10 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { StyleSheet, Text, ScrollView, Picker } from 'react-native';
-import ContentLoader from 'react-native-content-loader';
-import { Circle, Rect } from 'react-native-svg';
+import React, { Component } from "react";
+import { StyleSheet, Text, ScrollView, Picker } from "react-native";
+import ContentLoader from "react-native-content-loader";
+import { Circle, Rect } from "react-native-svg";
 
 const InstagramLoader = () => (
   <ContentLoader height={300} duration={1000}>
@@ -21,10 +21,12 @@ const InstagramLoader = () => (
 );
 
 const FacebookLoader = () => (
-  <ContentLoader primaryColor="#e8f7ff"
+  <ContentLoader
+    primaryColor="#e8f7ff"
     secondaryColor="#4dadf7"
     duration={700}
-    height={140}>
+    height={140}
+  >
     <Rect x="0" y="0" rx="5" ry="5" width="70" height="70" />
     <Rect x="80" y="17" rx="4" ry="4" width="300" height="13" />
     <Rect x="80" y="40" rx="3" ry="3" width="250" height="10" />
@@ -35,10 +37,7 @@ const FacebookLoader = () => (
 );
 
 const CodeStyleLoader = () => (
-  <ContentLoader
-    primaryColor="#fff0f6"
-    secondaryColor="#f783ac"
-    height={80}>
+  <ContentLoader primaryColor="#fff0f6" secondaryColor="#f783ac" height={80}>
     <Rect x="0" y="0" rx="3" ry="3" width="70" height="10" />
     <Rect x="80" y="0" rx="3" ry="3" width="100" height="10" />
     <Rect x="190" y="0" rx="3" ry="3" width="10" height="10" />
@@ -52,10 +51,7 @@ const CodeStyleLoader = () => (
 );
 
 const CustomStyleLoader = () => (
-  <ContentLoader
-    height={160}
-    duration={1000}
-  >
+  <ContentLoader height={160} duration={1000}>
     <Rect x="66" y="16" rx="4" ry="4" width="100" height="10" />
     <Rect x="66" y="36" rx="3" ry="3" width="70" height="10" />
     <Rect x="66" y="56" rx="3" ry="3" width="200" height="10" />
@@ -70,7 +66,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       loadingStyle: "instagram"
-    }
+    };
   }
   render() {
     let { loadingStyle } = this.state;
@@ -82,26 +78,22 @@ export default class App extends Component {
           style={{ height: 50, width: 250 }}
           onValueChange={(itemValue, itemIndex) =>
             this.setState({ loadingStyle: itemValue })
-          }>
+          }
+        >
           <Picker.Item label="Instagram style loader" value="instagram" />
           <Picker.Item label="Facebook style loader" value="facebook" />
           <Picker.Item label="Code style loader" value="code" />
           <Picker.Item label="Custom style" value="custom" />
         </Picker>
-        {
-          loadingStyle == "instagram" ?
-            <InstagramLoader />
-            :
-            loadingStyle == "facebook" ?
-              <FacebookLoader />
-              :
-              loadingStyle == "code" ?
-                <CodeStyleLoader />
-                :
-                loadingStyle == "custom" ?
-                  <CustomStyleLoader />
-                  : null
-        }
+        {loadingStyle == "instagram" ? (
+          <InstagramLoader />
+        ) : loadingStyle == "facebook" ? (
+          <FacebookLoader />
+        ) : loadingStyle == "code" ? (
+          <CodeStyleLoader />
+        ) : loadingStyle == "custom" ? (
+          <CustomStyleLoader />
+        ) : null}
       </ScrollView>
     );
   }
@@ -110,18 +102,18 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#F5FCFF"
   },
   welcome: {
     fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    textAlign: "center",
+    margin: 10
   },
   instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    textAlign: "center",
+    color: "#333333",
+    marginBottom: 5
+  }
 });
